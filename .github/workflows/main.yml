@@ -1,0 +1,21 @@
+name: Build my Angular App
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  Build-Angular-App:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.5.0
+        with:
+            node_version: 22.x
+      - name: install dependencies
+        run: npm install
+      - name: Build Angular app
+        run: npm run build
+    
+    
